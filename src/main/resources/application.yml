@@ -1,0 +1,36 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+  thymeleaf:
+    encoding: UTF-8
+    mode: HTML5
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+    timeout: 1000ms
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/picwanna?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8
+    username: root
+    password: 7184829
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  resources:
+    static-locations: classpath:static/
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.design.picwanna.entity
+server:
+  port: 8080

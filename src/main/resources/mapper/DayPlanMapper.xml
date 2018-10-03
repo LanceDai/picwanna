@@ -1,0 +1,112 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
+<!--<mapper namespace="">-->
+    <!--<resultMap id="BaseResultMap" type="com.lab.entity.DayPlan">-->
+        <!--<id column="DAY_ID" jdbcType="INTEGER" property="dayId"/>-->
+        <!--<result column="USER_ID" jdbcType="VARCHAR" property="userId"/>-->
+        <!--<result column="WEEK_ID" jdbcType="INTEGER" property="weekId"/>-->
+        <!--<result column="DAY_BEGIN" jdbcType="VARCHAR" property="dayBegin"/>-->
+        <!--<result column="DAY_END" jdbcType="VARCHAR" property="dayEnd"/>-->
+        <!--<result column="DAY_TASK" jdbcType="VARCHAR" property="dayTask"/>-->
+        <!--<result column="DAY_SCORE" jdbcType="FLOAT" property="dayScore"/>-->
+        <!--<result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime"/>-->
+        <!--<result column="STATUS" jdbcType="INTEGER" property="status"/>-->
+    <!--</resultMap>-->
+    <!--<update id="update" parameterType="com.lab.entity.DayPlan" >-->
+        <!--UPDATE day_plan-->
+        <!--<set>-->
+            <!--<if test="userId != null">-->
+                <!--USER_ID = #{userId},-->
+            <!--</if>-->
+            <!--<if test="weekId != null">-->
+                <!--WEEK_ID = #{weekId},-->
+            <!--</if>-->
+            <!--<if test="dayBegin != null">-->
+                <!--DAY_BEGIN = #{dayBegin},-->
+            <!--</if>-->
+            <!--<if test="dayEnd != null">-->
+                <!--DAY_END = #{dayEnd},-->
+            <!--</if>-->
+            <!--<if test="dayTask != null">-->
+                <!--DAY_TASK = #{dayTask},-->
+            <!--</if>-->
+            <!--<if test="dayScore != null">-->
+                <!--DAY_SCORE = #{dayScore},-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--CREATE_TIME = #{createTime},-->
+            <!--</if>-->
+            <!--<if test="status != null">-->
+                <!--STATUS = #{status},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--WHERE DAY_ID = #{dayId}-->
+    <!--</update>-->
+
+    <!--<select id="selectByUserIdAndWeekId" resultMap="BaseResultMap">-->
+        <!--SELECT * FROM day_plan-->
+        <!--WHERE USER_ID = #{userId} AND WEEK_ID = #{weekId}-->
+    <!--</select>-->
+
+
+    <!--<select id="selectByDayId" resultMap="BaseResultMap">-->
+        <!--SELECT * FROM day_plan-->
+        <!--WHERE DAY_ID = #{dayId}-->
+    <!--</select>-->
+
+    <!--<insert id="insert" parameterType="com.lab.entity.DayPlan">-->
+        <!--INSERT INTO day_plan-->
+        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+            <!--<if test="userId != null">-->
+                <!--USER_ID,-->
+            <!--</if>-->
+            <!--<if test="weekId != null">-->
+                <!--WEEK_ID,-->
+            <!--</if>-->
+            <!--<if test="dayBegin != null">-->
+                <!--DAY_BEGIN,-->
+            <!--</if>-->
+            <!--<if test="dayEnd != null">-->
+                <!--DAY_END,-->
+            <!--</if>-->
+            <!--<if test="dayTask != null">-->
+                <!--DAY_TASK,-->
+            <!--</if>-->
+            <!--<if test="dayScore != null">-->
+                <!--DAY_SCORE,-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--CREATE_TIME,-->
+            <!--</if>-->
+            <!--<if test="status != null">-->
+                <!--STATUS,-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+            <!--<if test="userId != null">-->
+                <!--#{userId},-->
+            <!--</if>-->
+            <!--<if test="weekId != null">-->
+                <!--#{weekId},-->
+            <!--</if>-->
+            <!--<if test="dayBegin != null">-->
+                <!--#{dayBegin},-->
+            <!--</if>-->
+            <!--<if test="dayEnd != null">-->
+                <!--#{dayEnd},-->
+            <!--</if>-->
+            <!--<if test="dayTask != null">-->
+                <!--#{dayTask},-->
+            <!--</if>-->
+            <!--<if test="dayScore != null">-->
+                <!--#{dayScore},-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--#{createTime},-->
+            <!--</if>-->
+            <!--<if test="status != null">-->
+                <!--#{status},-->
+            <!--</if>-->
+        <!--</trim>-->
+    <!--</insert>-->
+<!--</mapper>-->
