@@ -6,7 +6,10 @@ package com.design.picwanna.service;
  * @Description:
  */
 public interface RedisTestService {
+
     boolean set(String key, Object value);
+
     Object get(String key);
+
     boolean remove(String key);
 }

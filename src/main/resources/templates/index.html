@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      data-th-fragment="header">
+<head>
+    <meta charset="UTF-8">
+    <title>PicWanna</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-default my-nav navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand my-brand" href="#">PicWanna</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left search-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control search-content" placeholder="搜索你想要的内容">
+                    </div>
+                    <span class="glyphicon glyphicon-search search"></span>
+                </form>
+                <ul class="nav navbar-nav navbar-right my-navbar-right">
+                    <li><a href="#">推荐</a></li>
+                    <li><a href="#">流行</a></li>
+                    <li><a href="#">标签</a></li>
+                    <li><img src="imgs/head-profile.png" alt=""></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户名 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="userInfo.html">个人中心</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+                    <li class="subscribe">
+                        <span class="glyphicon glyphicon-bell"></span><i>99+</i>
+                        <div class="recent-posts">
+                            <div class="text-center text-muted" style="margin-top: 5px">动态</div>
+                            <ul>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img style="height: 30px;" class="media-object" src="imgs/tags.jpg" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            XXX <small style="color: #666;">投稿了</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img style="height: 30px;" class="media-object" src="imgs/tags.jpg" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            XXX 投稿了
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img style="height: 30px;" class="media-object" src="imgs/tags.jpg" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            XXX 投稿了
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img style="height: 30px;" class="media-object" src="imgs/tags.jpg" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            XXX 投稿了
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><button class="btn contribute">投稿</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="container-fluid">
+        <div>
+            <h1>PicWanna</h1>
+            <h3>Best free stock photos in one place. Learn more</h3>
+            <div class="head-search-group">
+                <input class="form-control header-search" type="text" placeholder="搜索你想要的内容">
+                <i class="glyphicon glyphicon-search header-search-icon"></i>
+            </div>
+            <ul class="header-tags">
+                <li><a href="">标签1</a></li>
+                <li><a href="">标签1</a></li>
+                <li><a href="">标签1</a></li>
+                <li><a href="">标签1</a></li>
+                <li><a href="">标签1</a></li>
+                <li><a href="">标签1</a></li>
+                <li><a href="">more...</a></li>
+            </ul>
+        </div>
+    </header>
+</div>
+<h3 style="margin: 0; padding: 10px;">Photos</h3>
+<div class="view-items">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs my-nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#new" role="tab" data-toggle="tab">最新</a></li>
+        <li role="presentation"><a href="#populate"  role="tab" data-toggle="tab">流行</a></li>
+        <li role="presentation"><a href="#focus" role="tab" data-toggle="tab">关注</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="new">
+            <div class="pictures">
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box asd">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="populate">
+            <div class="pictures">
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="focus">
+            <div class="pictures">
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img01.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img02.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img03.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img04.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img05.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img06.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img07.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img08.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img09.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="pic">
+                        <img src="imgs/img10.jpg" alt="">
+                        <div class="img-control">
+                            <span class="user-name">SBlh</span>
+                            <span style="margin-top: 3px;">
+                                <i class="glyphicon glyphicon-thumbs-up good"></i>
+                                <i class="glyphicon glyphicon-heart like"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="img-clicked">
+    <div>
+        <div class="img-preview-info">
+            <div class="img-content text-center">
+                <img src="imgs/img01.jpg" alt="">
+                <div class="img-tags">
+                    <ul>
+                        <li><a href="#">标签2</a></li>
+                        <li><a href="#">标签2</a></li>
+                        <li><a href="#">标签2</a></li>
+                        <li><a href="#">标签2</a></li>
+                    </ul>
+                </div>
+                <div class="img-preview-control">
+                    <i class="glyphicon glyphicon-thumbs-up img-good"></i>
+                    <i class="glyphicon glyphicon-thumbs-down img-bad"></i>
+                    <i class="glyphicon glyphicon-heart img-like"></i>
+                </div>
+            </div>
+            <div class="img-right">
+                <div class="img-download">
+                    <button class="btn btn-success">付费下载</button>
+                </div>
+                <div class="img-brief">
+                    <h2>简介</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo in mollitia, numquam quis temporibus ullam ut velit voluptates voluptatum? Aperiam dignissimos fugiat inventore iste mollitia optio, porro ullam veritatis voluptatibus?</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-preview-similar">
+            <h4>相似</h4>
+            <ul>
+                <li><img src="imgs/img01.jpg" alt=""></li>
+                <li><img src="imgs/img02.jpg" alt=""></li>
+                <li><img src="imgs/img03.jpg" alt=""></li>
+                <li><img src="imgs/img04.jpg" alt=""></li>
+                <li><img src="imgs/img05.jpg" alt=""></li>
+            </ul>
+            <h5 style="text-align: right">MORE →</h5>
+        </div>
+        <i class="glyphicon glyphicon-remove click-close"></i>
+    </div>
+</div>
+<script th:src="@{js/jquery-3.3.1.min.js}"/>
+<script th:src="@{js/bootstrap.min.js}"/>
+<script th:src="@{js/index.js}"/>
+</body>
+</html>

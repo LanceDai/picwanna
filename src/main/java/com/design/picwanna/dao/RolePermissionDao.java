@@ -4,6 +4,8 @@ import com.design.picwanna.entity.RolePermission;
 import com.design.picwanna.entity.key.RolePermissionKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * className: RolePermissionDao
  * description: TODO
@@ -13,5 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @date 18-10-12
  */
 public interface RolePermissionDao extends JpaRepository<RolePermission, RolePermissionKey> {
-
+    List<RolePermission> findAllByRoleId(Integer roleId);
 }

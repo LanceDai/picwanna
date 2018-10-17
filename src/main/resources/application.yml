@@ -5,6 +5,8 @@ spring:
   thymeleaf:
     encoding: UTF-8
     mode: HTML5
+    cache: false
+    prefix: classpath:/templates/
   redis:
     database: 0
     host: localhost
@@ -28,8 +30,8 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: true
-  resources:
-    static-locations: classpath:static/
+#  resources:
+#    static-locations: classpath:/static/
 #mybatis:
 #  mapper-locations: classpath:mapper/*.xml
 #  type-aliases-package: com.design.picwanna.entity

@@ -1,19 +1,14 @@
-//package com.design.picwanna.dao;
+//package com.design.picwanna.service;
 //
 //import com.design.picwanna.entity.Pic;
 //import org.springframework.data.domain.Page;
 //import org.springframework.data.domain.Pageable;
 //import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 //
-///**
-// * className: PicDao
-// * description: TODO
-// *
-// * @author lh
-// * @version 1.0
-// * @date 18-10-12
-// */
-//public interface PicDao extends ElasticsearchRepository<Pic, Long> {
+//import java.util.List;
+//
+//public interface PicService {
+//
 //    Pic sava(Pic pic);
 //
 //    Page<Pic> findAllByUserId(String userId, Pageable pageable);

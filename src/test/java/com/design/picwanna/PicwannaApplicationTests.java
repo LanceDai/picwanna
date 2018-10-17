@@ -1,16 +1,22 @@
 package com.design.picwanna;
 
 import com.design.picwanna.dao.AttitudeDao;
+import com.design.picwanna.dao.PermissionDao;
+import com.design.picwanna.dao.TestDao;
 import com.design.picwanna.entity.Attitude;
+import com.design.picwanna.entity.Permission;
+import com.design.picwanna.entity.RolePermission;
 import com.design.picwanna.entity.key.AttitudeKey;
-import com.design.picwanna.service.AttitudeService;
-import com.design.picwanna.service.RedisTestService;
+import com.design.picwanna.service.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -27,10 +33,24 @@ public class PicwannaApplicationTests {
     AttitudeDao attitudeDao;
     @Autowired
     AttitudeService attitudeService;
-
+    @Autowired
+    TestService testService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    RolePermissionService rolePermissionService;
+    @Autowired
+    PermissionService permissionService;
     @Test
     public void contextLoads() {
-
+//        //第0页开始
+        Pageable pageable = PageRequest.of(0, 10);
+        log.info("----------------------------"+testService.findAllByContentContaining("政府", pageable).getContent().toString());
+//        com.design.picwanna.entity.Test test = new com.design.picwanna.entity.Test();
+//        test.setContent("中华人民共和国位于亚洲东部，太平洋西岸，是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家");
+//        testDao.save(test);
     }
 
     @Test
@@ -72,9 +92,14 @@ public class PicwannaApplicationTests {
     public void messageSqlTest() {
 
     }
+    @Autowired
+    PermissionDao permissionDao;
 
     @Test
     public void permissionSqlTest() {
+        log.info(rolePermissionService.findAllByRoleId(1).toString());
+        log.info("--------------------------------------------------");
+        log.info(permissionService.findAllPermissionByRoleId(1).toString());
 
     }
 
@@ -95,7 +120,7 @@ public class PicwannaApplicationTests {
 
     @Test
     public void userSqlTest() {
-
+        log.info(userService.findById("2").toString());
     }
 
     @Test

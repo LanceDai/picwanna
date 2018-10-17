@@ -3,6 +3,8 @@ package com.design.picwanna.dao;
 import com.design.picwanna.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 /**
  * className: UserDao
  * description: TODO
@@ -13,4 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserDao extends JpaRepository<User, String> {
 
+    Optional<User> findByUserName(String username);
+
+    Optional<User> findByEmail(String email);
 }
