@@ -49,8 +49,9 @@ public class RedisConfig extends CachingConfigurerSupport {
 //        template.afterPropertiesSet();
 //        return template;
 //    }
-@Autowired
-private RedisConnectionFactory redisConnectionFactory;
+
+    @Autowired
+    private RedisConnectionFactory redisConnectionFactory;
 
 
     @Bean

@@ -77,6 +77,11 @@ public class TestController {
 //        return "userInfo";
 //    }
 
+    @RequestMapping("home")
+    public String home(){
+        return "index";
+    }
+
     @RequestMapping({"/", "/index"})
     public String index(){
         return "test/index";
@@ -84,6 +89,7 @@ public class TestController {
 
     @RequestMapping("/toLogin")
     public String toLogin(){
+        System.out.println("login");
         return "test/login";
     }
 

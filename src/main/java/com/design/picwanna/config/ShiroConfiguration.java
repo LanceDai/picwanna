@@ -43,7 +43,13 @@ public class ShiroConfiguration {
          * role:该资源必须得到角色权限才可以访问
          */
         Map<String, String> filterMap = new LinkedHashMap<>();
+        filterMap.put("/js/*", "anon");
+        filterMap.put("/css/*", "anon");
+        filterMap.put("/fonts/*", "anon");
+        filterMap.put("/imgs/*", "anon");
+
         filterMap.put("/exp/index", "anon");
+        filterMap.put("/exp/", "anon");
         filterMap.put("/exp/login", "anon");
         filterMap.put("/exp/add", "perms[admin]");
         filterMap.put("/exp/select", "authc");
@@ -54,7 +60,12 @@ public class ShiroConfiguration {
         return shiroFilterFactoryBean;
     }
 
-    //加入注解的使用，不加入这个注解不生效
+
+    /**
+     * 加入注解的使用，不加入这个注解不生效
+     * @param securityManager
+     * @return
+     */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();

@@ -7,6 +7,7 @@ import com.design.picwanna.service.PermissionService;
 import com.design.picwanna.service.RolePermissionService;
 import com.design.picwanna.service.RoleService;
 import com.design.picwanna.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -19,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 public class ShiroRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
@@ -62,6 +63,8 @@ public class ShiroRealm extends AuthorizingRealm {
         if (authenticationToken.getPrincipal() == null){
             return null;
         }
+
+        log.info(authenticationToken.toString());
         //判断用户名
         String name = authenticationToken.getPrincipal().toString();
 

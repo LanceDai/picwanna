@@ -1,0 +1,168 @@
+.navbar-default.my-nav{
+    color: #000;
+    background-color: #222;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+}
+.navbar-default .my-brand{
+    color: #fff;
+}
+.navbar-default .my-brand:hover{
+    color: #fff;
+}
+.navbar-default .search-form{
+    position: relative;
+}
+.navbar-default .search-content{
+    border: 1px solid #555;
+    background-color: #555;
+    width: 450px;
+    transition: all 800ms;
+}
+.navbar-default .search-content:focus{
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+.navbar-default .search{
+    cursor: pointer;
+    position: absolute;
+    top: 11px;
+    right: 24px;
+}
+.navbar-default .my-navbar-right>li>a{
+    color: #fff;
+}
+.navbar-default .my-navbar-right>li>img{
+    height: 35px;
+    margin-top: 7px;
+}
+.navbar-default .my-navbar-right>li>a:hover{
+    color: #e6e6e6;
+}
+.navbar-default .my-navbar-right .dropdown.open>a {
+    background-color: #222!important;
+    color: #ffffff !important;
+}
+.navbar-default .my-navbar-right>li>span{
+    position: relative;
+    padding: 5px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+}
+.navbar-default .my-navbar-right>li>i{
+    padding: 3px;
+    position: absolute;
+    height: 20px;
+    min-width: 20px;
+    top: 5px;
+    right: -6px;
+    color: #fff;
+    border-radius: 999rem;
+    background-color: orangered;
+    font-size: 10px;
+    line-height: 18px;
+}
+.navbar-default .my-navbar-right>li>.recent-posts{
+    position: absolute;
+    top: 45px;
+    left: -89px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    background-color: #fff;
+    z-index:99;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.35s;
+}
+.navbar-default .my-navbar-right>li:hover>.recent-posts{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.navbar-default .my-navbar-right>li>.recent-posts ul{
+    list-style: none;
+    padding: 5px 10px;
+}
+.navbar-default .my-navbar-right>li>.recent-posts ul li{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.navbar-default .my-navbar-right>li>.contribute{
+    margin: 13px 20px 8px 20px;
+    padding: 1px 15px;
+    background-color: #199ED8;
+    font-weight: bold;
+    color: white;
+    border-radius: 999rem;
+    outline: none;
+}
+
+.tags-title{
+    margin-top: 50px;
+    padding: 20px 30px 40px 30px;
+    background: linear-gradient(#aaa, #fff);
+}
+.tags-title h2{
+    font-weight: bolder;
+}
+.tags-view .tags-content{
+    text-align: center;
+    margin-top: 20px;
+}
+.tags-view .tags-content ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.tags-view .tags-content ul li{
+    height: 210px;
+    margin: 10px;
+    width: 30%;
+    position: relative;
+    overflow: hidden;
+}
+.tags-view .tags-content ul li img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.tags-view .tags-content ul li h2{
+    border-radius: 10px 10px 0 0;
+    text-align: left;
+    margin: 0;
+    padding: 10px 30px 60px 30px;
+    background: linear-gradient(rgba(0,0,0,.8), transparent);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+.tags-view .tags-content ul li .more{
+    cursor: pointer;
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    color: #fff;
+    transition: all 0.5s;
+}
+.tags-view .tags-content ul li .img-num{
+    cursor: pointer;
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    color: #fff;
+    transition: all 0.5s;
+}
+.tags-view .tags-content ul li:hover span{
+    bottom: 5px;
+}
