@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      data-th-fragment="header">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>实验室登录</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <style>
+        .glyphicon{
+            top: 0 !important;
+        }
+    </style>
+</head>
+<body>
+<!-- 代码 开始 -->
+<div class="bg" style="transition: background 2s;"></div>
+<div class="bg-mask"></div>
+<div id="login">
+    <div class="wrapper">
+        <div class="login">
+            <form action="/exp/login" method="post" class="container loginform mylogin">
+                <h1 class="text-center">登录</h1>
+                <div id="owl-login">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                    <div class="arms">
+                        <div class="arm"></div>
+                        <div class="arm arm-r"></div>
+                    </div>
+                </div>
+                <div class="pad">
+                    <div class="form-group form-username">
+                        <div class="controls input-group">
+                            <span class="input-group-addon glyphicon glyphicon-user"></span>
+                            <input id="username" type="text" name="id" placeholder="输入用户名" autofocus="autofocus" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group form-password">
+                        <div class="controls input-group">
+                            <input id="password" type="password" name="password" placeholder="输入密码" class="form-control">
+                            <span id="eye" class="eye input-group-addon glyphicon glyphicon-eye-open"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <a id="forget" href="#" class="btn btn-link">忘记密码？</a>
+                    <button type="button" class="btn btn-primary submit">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="lr-control">
+    <img class="left" th:src="@{/imgs/left.png}" alt="">
+    <img class="right" th:src="@{/imgs/right.png}" alt="">
+</div>
+<!-- 代码 结束 -->
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/layer.js}"></script>
+<!--<script src="${url}js/common.js"></script>-->
+<script th:src="@{/js/login.js}"></script>
+<script>
+    $(function () {
+        $("#forget").click(function () {
+            layer.msg("联系我昊哥改数据库去吧嘻嘻嘻嘻。");
+        });
+    })
+</script>
+</body>
+</html>

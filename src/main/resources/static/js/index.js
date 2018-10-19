@@ -15,7 +15,7 @@ $(function () {
             // console.log(1);
             count ++;
             //传值模板
-            // $.post("jiekou dizhi ", {
+            // $.post("url", {
             //     pagenum:count,
             //     pagSize:20
             // }, function (data) {

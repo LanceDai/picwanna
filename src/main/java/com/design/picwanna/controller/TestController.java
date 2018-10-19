@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * className: TestController
  * description: TODO
@@ -90,25 +93,37 @@ public class TestController {
     @RequestMapping("/toLogin")
     public String toLogin(){
         System.out.println("login");
-        return "test/login";
+        return "login";
     }
 
+    @ResponseBody
     @RequestMapping("/login")
-    public String testLogin(String username, String password, Model model){
+    public Map<String, Object> testLogin(String username, String password, Model model){
+        Map<String, Object> map = new HashMap<>(16);
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
         try{
             subject.login(usernamePasswordToken);
-            return "redirect:/exp/index";
+            map.put("code", 1);
+            return map;
         }catch (UnknownAccountException e){
             e.printStackTrace();
-            model.addAttribute("msg", "用户名不存在");
-            return "test/login";
+
+            map.put("msg", "用户名不存在");
+            map.put("code", 0);
+            return map;
         }catch (IncorrectCredentialsException e){
             e.printStackTrace();
-            model.addAttribute("msg", "密码错误");
-            return "test/login";
+
+            map.put("msg", "密码错误");
+            map.put("code", 0);
+            return map;
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("msg", "未知错误");
+            map.put("code", 0);
         }
+        return map;
     }
 
     @RequestMapping("add")
