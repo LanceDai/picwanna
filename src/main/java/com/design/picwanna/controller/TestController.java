@@ -1,8 +1,7 @@
 package com.design.picwanna.controller;
 
-import com.design.picwanna.entity.Attitude;
-import com.design.picwanna.entity.key.AttitudeKey;
 import com.design.picwanna.service.AttitudeService;
+import com.design.picwanna.utils.Consts;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -11,11 +10,10 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +30,8 @@ import java.util.Map;
 public class TestController {
     @Autowired
     AttitudeService attitudeService;
+    @Autowired
+    Consts consts;
 //    @ResponseBody
 //    @RequestMapping("get")
 //    public String get(){
@@ -82,7 +82,7 @@ public class TestController {
 
     @RequestMapping("home")
     public String home(){
-        return "index";
+        return "home";
     }
 
     @RequestMapping({"/", "/index"})
@@ -91,14 +91,16 @@ public class TestController {
     }
 
     @RequestMapping("/toLogin")
-    public String toLogin(){
+    public String toLogin(Model model){
         System.out.println("login");
-        return "login";
+        System.out.println(consts.test);
+//        model.addAttribute("kickout","This is your message");
+        return "testLogin";
     }
 
     @ResponseBody
     @RequestMapping("/login")
-    public Map<String, Object> testLogin(String username, String password, Model model){
+    public Map<String, Object> testLogin(String username, String password, Model model, HttpSession session){
         Map<String, Object> map = new HashMap<>(16);
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
@@ -140,4 +142,22 @@ public class TestController {
     public String unAuth(){
         return "test/unAuth";
     }
+
+    @RequestMapping("/kickout")
+    public String kickout(Model model){
+        System.out.println("kickout");
+//        model.addAttribute("kickout","This is your message");
+        return "tekickout";
+    }
+
+    @RequestMapping("/image")
+    public String image(){
+        return "Picimage";
+    }
+
+    @RequestMapping("/user")
+    public String user(){
+        return "PicuserInfo";
+    }
+
 }

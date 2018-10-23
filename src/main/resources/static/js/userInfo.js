@@ -1,18 +1,11 @@
 $(function () {
-
-    $(document).on("click", ".pic", function () {
-        $(".img-clicked").css("animation","in 0.5s forwards ease-in-out");
-    });
-    $(".click-close").click(function () {
-        $(".img-clicked").css("animation","out 0.5s forwards ease-in-out");
-    });
-
     $(window).scroll(function () {
-        if (Math.round($(window).scrollTop()) === Math.round($(document).height() - $(window).height())) {
+        //瀑布流
+        if (Math.round($(window).scrollTop()) >= Math.round($(document).height() - ($(window).height()+10))) {
             let str = $(`
                 <div class="box">
                 <div class="pic">
-                        <img src="/imgs/img03.jpg" alt="">
+                        <img src="imgs/img03.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -24,7 +17,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img04.jpg" alt="">
+                        <img src="imgs/img04.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -36,7 +29,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img05.jpg" alt="">
+                        <img src="imgs/img05.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -48,7 +41,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img06.jpg" alt="">
+                        <img src="imgs/img06.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -60,7 +53,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img07.jpg" alt="">
+                        <img src="imgs/img07.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -72,7 +65,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img08.jpg" alt="">
+                        <img src="imgs/img08.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -84,7 +77,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img09.jpg" alt="">
+                        <img src="imgs/img09.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -96,7 +89,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img10.jpg" alt="">
+                        <img src="imgs/img10.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -108,7 +101,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img01.jpg" alt="">
+                        <img src="imgs/img01.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -120,7 +113,7 @@ $(function () {
                 </div>
                 <div class="box">
                     <div class="pic">
-                        <img src="/imgs/img02.jpg" alt="">
+                        <img src="imgs/img02.jpg" alt="">
                         <div class="img-control">
                             <span class="user-name">SBlh</span>
                             <span style="margin-top: 3px;">
@@ -132,8 +125,7 @@ $(function () {
                 </div>            
 `)
 
-            $("#my-photo .pictures").append(str);
-
+            $(".tab-pane.active .pictures").append(str);
         }
     });
 });

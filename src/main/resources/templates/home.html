@@ -7,6 +7,7 @@
     <title>PicWanna</title>
     <link rel="stylesheet" th:href="@{/css/normalize.css}">
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
@@ -40,7 +41,7 @@
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户名 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="userInfo.html">个人中心</a></li>
+                            <li><a href="PicuserInfo.html">个人中心</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>
@@ -1247,8 +1248,12 @@
                     </ul>
                 </div>
                 <div class="img-preview-control">
-                    <i class="glyphicon glyphicon-thumbs-up img-good"></i>
-                    <i class="glyphicon glyphicon-thumbs-down img-bad"></i>
+                    <i class="glyphicon glyphicon-thumbs-up img-good">
+                        <span>＋1</span>
+                    </i>
+                    <i class="glyphicon glyphicon-thumbs-down img-bad">
+                        <span>－1</span>
+                    </i>
                     <i class="glyphicon glyphicon-heart img-like"></i>
                 </div>
             </div>
@@ -1278,6 +1283,7 @@
 </div>
 <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/common.js}"></script>
 <script th:src="@{/js/index.js}"></script>
 </body>
 </html>

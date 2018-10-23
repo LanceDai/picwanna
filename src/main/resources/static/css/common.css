@@ -1,12 +1,14 @@
 .navbar-default.my-nav{
     color: #000;
-    background-color: #222;
+    background-color: transparent;
     margin-bottom: 0;
     border: none;
     border-radius: 0;
+    transition: all 1s;
 }
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
-    color: #fff;
+.navbar-default.my-nav .navbar-header{
+    transition: all 1s;
+    opacity: 0;
 }
 .navbar-default .my-brand{
     color: #fff;
@@ -16,6 +18,8 @@
 }
 .navbar-default .search-form{
     position: relative;
+    transition: all 1s;
+    opacity: 0;
 }
 .navbar-default .search-content{
     border: 1px solid #555;
@@ -44,8 +48,11 @@
     color: #e6e6e6;
 }
 .navbar-default .my-navbar-right .dropdown.open>a {
-    background-color: #222!important;
+    background-color: transparent;
     color: #ffffff !important;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color: #fff;
 }
 .navbar-default .my-navbar-right>li>span{
     position: relative;
@@ -84,7 +91,6 @@
     opacity: 1;
     transform: scale(1);
 }
-
 .navbar-default .my-navbar-right>li>.recent-posts ul{
     list-style: none;
     padding: 5px 10px;
@@ -93,7 +99,6 @@
     font-size: 13px;
     margin-bottom: 5px;
 }
-
 .navbar-default .my-navbar-right>li>.contribute{
     margin: 13px 20px 8px 20px;
     padding: 1px 15px;
@@ -103,69 +108,10 @@
     border-radius: 999rem;
     outline: none;
 }
-
-.tags-title{
-    margin-top: 50px;
-    padding: 20px 30px 40px 30px;
-    background: linear-gradient(#aaa, #fff);
-}
-.tags-title h2{
-    font-weight: bolder;
-}
-.tags-view .tags-content{
-    text-align: center;
-    margin-top: 20px;
-}
-.tags-view .tags-content ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-}
-.tags-view .tags-content ul li{
-    height: 210px;
-    margin: 10px;
-    width: 30%;
-    position: relative;
-    overflow: hidden;
-}
-.tags-view .tags-content ul li img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-.tags-view .tags-content ul li h2{
-    border-radius: 10px 10px 0 0;
-    text-align: left;
-    margin: 0;
-    padding: 10px 30px 60px 30px;
-    background: linear-gradient(rgba(0,0,0,.8), transparent);
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    color: #fff;
-}
-.tags-view .tags-content ul li .more{
+.good, .like{
+    user-select: none;
     cursor: pointer;
-    position: absolute;
-    bottom: -20px;
-    right: 10px;
-    color: #fff;
-    transition: all 0.5s;
 }
-.tags-view .tags-content ul li .img-num{
-    cursor: pointer;
-    position: absolute;
-    bottom: -20px;
-    left: 10px;
-    color: #fff;
-    transition: all 0.5s;
-}
-.tags-view .tags-content ul li:hover span{
-    bottom: 5px;
+.good.active, .like.active{
+    color: red!important;
 }

@@ -2,115 +2,6 @@
     background: url("../imgs/head-bg.jpg") 0 0 no-repeat;
     background-size: cover;
 }
-
-.navbar-default.my-nav{
-    color: #000;
-    background-color: transparent;
-    margin-bottom: 0;
-    border: none;
-    border-radius: 0;
-    transition: all 1s;
-}
-.navbar-default.my-nav .navbar-header{
-    transition: all 1s;
-    opacity: 0;
-}
-.navbar-default .my-brand{
-    color: #fff;
-}
-.navbar-default .my-brand:hover{
-    color: #fff;
-}
-.navbar-default .search-form{
-    position: relative;
-    transition: all 1s;
-    opacity: 0;
-}
-.navbar-default .search-content{
-    border: 1px solid #555;
-    background-color: #555;
-    width: 450px;
-    transition: all 800ms;
-}
-.navbar-default .search-content:focus{
-    background-color: #fff;
-    border: 1px solid #fff;
-}
-.navbar-default .search{
-    cursor: pointer;
-    position: absolute;
-    top: 11px;
-    right: 24px;
-}
-.navbar-default .my-navbar-right>li>a{
-    color: #fff;
-}
-.navbar-default .my-navbar-right>li>img{
-    height: 35px;
-    margin-top: 7px;
-}
-.navbar-default .my-navbar-right>li>a:hover{
-    color: #e6e6e6;
-}
-.navbar-default .my-navbar-right .dropdown.open>a {
-    background-color: #222!important;
-    color: #ffffff !important;
-}
-.navbar-default .my-navbar-right>li>span{
-    position: relative;
-    padding: 5px;
-    color: #fff;
-    line-height: 40px;
-    font-size: 20px;
-}
-.navbar-default .my-navbar-right>li>i{
-    padding: 3px;
-    position: absolute;
-    height: 20px;
-    min-width: 20px;
-    top: 5px;
-    right: -6px;
-    color: #fff;
-    border-radius: 999rem;
-    background-color: orangered;
-    font-size: 10px;
-    line-height: 18px;
-}
-.navbar-default .my-navbar-right>li>.recent-posts{
-    position: absolute;
-    top: 45px;
-    left: -89px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    background-color: #fff;
-    z-index:99;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.35s;
-}
-.navbar-default .my-navbar-right>li:hover>.recent-posts{
-    opacity: 1;
-    transform: scale(1);
- }
-.navbar-default .my-navbar-right>li>.recent-posts ul{
-    list-style: none;
-    padding: 5px 10px;
-}
-.navbar-default .my-navbar-right>li>.recent-posts ul li{
-    font-size: 13px;
-    margin-bottom: 5px;
-}
-.navbar-default .my-navbar-right>li>.contribute{
-    margin: 13px 20px 8px 20px;
-    padding: 1px 15px;
-    background-color: #199ED8;
-    font-weight: bold;
-    color: white;
-    border-radius: 999rem;
-    outline: none;
-}
-
 header{
     height: 350px;
 }
@@ -228,10 +119,12 @@ img{
 }
 .tab-content .pictures{
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .tab-content .pictures .box{
-    float: left;
     padding: 15px 0 0 15px;
 }
 
@@ -257,7 +150,7 @@ img{
 }
 .img-clicked > div{
     max-width: 800px;
-    margin: 50px auto;
+    margin: 100px auto;
     border-radius: 10px;
     background-color: #fff;
     padding: 10px;
@@ -280,6 +173,8 @@ img{
     max-width: 530px;
 }
 .img-clicked .img-preview-info .img-content i{
+    user-select: none;
+    cursor: pointer;
     font-size: 25px;
     position: absolute;
 }
@@ -290,25 +185,32 @@ img{
     right: 70px;
     top: -60px;
 }
-.img-clicked .img-preview-info .img-content i:nth-child(1):after{
-    content: '+1s';
+.img-clicked .img-preview-info .img-content i.active{
+    color: red;
+}
+.img-clicked .img-preview-info .img-content i:nth-child(1) span, .img-clicked .img-preview-info .img-content i:nth-child(2) span{
     color: red;
     font-size: 10px;
     position: absolute;
     left: 4px;
     top: -15px;
-    -webkit-animation: upup 1s forwards;
-    -o-animation: upup 1s forwards;
-    animation: upup 1s forwards;
+    font-weight: bold;
+    opacity: 0;
+}
+.img-clicked .img-preview-info .img-content i:nth-child(1) span.active, .img-clicked .img-preview-info .img-content i:nth-child(2) span.active{
+    animation: upup .5s forwards;
 }
 @keyframes upup {
-    from{
+    0%{
         opacity: 0;
         top: 10px;
     }
-    to{
+    90%{
         opacity: 1;
         top: -15px;
+    }
+    100%{
+        opacity: 0;
     }
 }
 .img-clicked .img-preview-info .img-content i:nth-child(2){

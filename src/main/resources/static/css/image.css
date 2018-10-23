@@ -5,6 +5,9 @@
     border: none;
     border-radius: 0;
 }
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color: #fff;
+}
 .navbar-default .my-brand{
     color: #fff;
 }
@@ -159,10 +162,12 @@
 }
 .tab-content .pictures{
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .tab-content .pictures .box{
-    float: left;
     padding: 15px 0 0 15px;
 }
 
@@ -188,7 +193,7 @@
 }
 .img-clicked > div{
     max-width: 800px;
-    margin: 50px auto;
+    margin: 100px auto;
     border-radius: 10px;
     background-color: #fff;
     padding: 10px;
@@ -211,6 +216,8 @@
     max-width: 530px;
 }
 .img-clicked .img-preview-info .img-content i{
+    user-select: none;
+    cursor: pointer;
     font-size: 25px;
     position: absolute;
 }
@@ -220,6 +227,34 @@
 .img-clicked .img-preview-info .img-content i:nth-child(1){
     right: 70px;
     top: -60px;
+}
+.img-clicked .img-preview-info .img-content i.active{
+    color: red;
+}
+.img-clicked .img-preview-info .img-content i:nth-child(1) span, .img-clicked .img-preview-info .img-content i:nth-child(2) span{
+    color: red;
+    font-size: 10px;
+    position: absolute;
+    left: 4px;
+    top: -15px;
+    font-weight: bold;
+    opacity: 0;
+}
+.img-clicked .img-preview-info .img-content i:nth-child(1) span.active, .img-clicked .img-preview-info .img-content i:nth-child(2) span.active{
+    animation: upup .5s forwards;
+}
+@keyframes upup {
+    0%{
+        opacity: 0;
+        top: 10px;
+    }
+    90%{
+        opacity: 1;
+        top: -15px;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 .img-clicked .img-preview-info .img-content i:nth-child(2){
     right: 37px;
@@ -234,10 +269,12 @@
 }
 .img-clicked .img-preview-info .img-tags ul{
     display: flex;
-    justify-content: space-between;
     padding: 0 10px;
     list-style: none;
     margin-top: 10px;
+}
+.img-clicked .img-preview-info .img-tags ul li{
+    margin: 0 15px 0 0;
 }
 .img-clicked .img-preview-info .img-tags ul li a:hover{
     text-decoration: none;
